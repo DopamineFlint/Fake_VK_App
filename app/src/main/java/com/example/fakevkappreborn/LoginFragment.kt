@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.Fragment
 import com.example.fakevkappreborn.sign_in_model.SignInModel
 import kotlinx.android.synthetic.main.fragment_login.*
 

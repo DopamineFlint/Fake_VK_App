@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -17,8 +16,10 @@ import com.example.fakevkappreborn.R
 import com.example.fakevkappreborn.items.UserItem
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_profile.*
-import java.io.*
-import java.lang.Exception
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
