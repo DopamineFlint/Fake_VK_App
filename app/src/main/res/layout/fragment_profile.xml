@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menufragments.ProfileFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/vk_profile_toolbar"
+            app:title="email"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/just_white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/vk_custom_avatar"
+        style="@style/vk_custom_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:srcCompat="@drawable/photo_of_me"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/vk_user_name"
+        style="@style/vk_user_name"
+        app:layout_constraintStart_toEndOf="@+id/vk_custom_avatar"
+        app:layout_constraintTop_toTopOf="@+id/vk_custom_avatar"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:id="@+id/vk_user_status"
+        style="@style/vk_user_status"
+        app:layout_constraintBottom_toBottomOf="@+id/vk_custom_avatar"
+        app:layout_constraintStart_toStartOf="@+id/vk_status_message"
+        app:layout_constraintTop_toBottomOf="@+id/vk_status_message"
+        android:layout_marginStart="0dp" />
+
+    <TextView
+        android:id="@+id/vk_status_message"
+        style="@style/vk_status_message"
+        app:layout_constraintStart_toStartOf="@+id/vk_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/vk_user_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/vk_edit_button"
+        style="@style/vk_button_edit_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vk_custom_avatar"
+        android:layout_marginTop="12dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="vk_status_message,vk_user_status,vk_user_name,vk_custom_avatar"
+        tools:layout_editor_absoluteY="137dp" />
+
+    <Button
+        android:id="@+id/vk_edit_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="photo"
+        app:layout_constraintEnd_toEndOf="@+id/vk_edit_button"
+        app:layout_constraintStart_toStartOf="@+id/vk_edit_button"
+        app:layout_constraintTop_toBottomOf="@+id/vk_edit_button" />
+
+    <Button
+        android:id="@+id/vk_edit_photo_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="camera"
+        app:layout_constraintEnd_toEndOf="@+id/vk_edit_photo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/vk_edit_photo"
+        app:layout_constraintTop_toBottomOf="@+id/vk_edit_photo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
