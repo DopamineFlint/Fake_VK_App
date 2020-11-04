@@ -2,23 +2,17 @@ package com.example.fakevkappreborn.menufragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
-import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fakevkappreborn.R
 import com.example.fakevkappreborn.items.PostAdapter
-import com.example.fakevkappreborn.items.PostItem
 import com.example.fakevkappreborn.items.PostItemTest
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_news.*
 import java.io.IOException
-import com.google.gson.reflect.TypeToken
-import java.text.SimpleDateFormat
-import java.util.*
 
 class NewsFragment : Fragment(R.layout.fragment_news) {
 

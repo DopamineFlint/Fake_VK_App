@@ -1,11 +1,6 @@
 package com.example.fakevkappreborn.menufragments
 
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.res.AssetManager
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -16,8 +11,6 @@ import com.example.fakevkappreborn.R
 import com.example.fakevkappreborn.items.UserItem
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_profile_edit.*
-import java.io.File
-import java.io.IOException
 
 
 class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
