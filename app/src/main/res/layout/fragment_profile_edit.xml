@@ -61,6 +61,8 @@
             android:layout_marginStart="16dp"
             android:hint="Name"
             app:layout_constraintBottom_toTopOf="@+id/vk_profile_edit_status"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/vk_profile_edit_custom_avatar" />
 
         <EditText
@@ -71,6 +73,8 @@
             android:layout_marginStart="16dp"
             android:hint="Status"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/vk_profile_edit_custom_avatar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
