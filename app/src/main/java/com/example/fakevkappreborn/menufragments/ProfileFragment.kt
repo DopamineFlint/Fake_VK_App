@@ -45,15 +45,17 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             Log.d("MyTransLog","$transaction")
         }
 
+        /*
         vk_edit_photo.setOnClickListener {
             val photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "image/*"
             startActivityForResult(photoPickerIntent, 1)
         }
+        */*/
 
-        vk_edit_photo_camera.setOnClickListener {
+        /*vk_edit_photo_camera.setOnClickListener {
             askCameraPermissions()
-        }
+        } */
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
