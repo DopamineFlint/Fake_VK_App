@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.fakevkappreborn.MainActivity
-import com.example.fakevkappreborn.MainMenuFragment
 import com.example.fakevkappreborn.R
 import com.example.fakevkappreborn.items.UserItem
 import com.google.gson.Gson
@@ -36,8 +35,6 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
                 val act = activity as MainActivity
                 act.saveText(json, path)
-
-                MainMenuFragment(1)
 
                 fragmentManager?.popBackStack()
             }

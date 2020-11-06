@@ -13,26 +13,22 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout_news"
         tools:listitem="@layout/vk_post_item" />
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/toolbar"
+        android:id="@+id/appBarLayout_news"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/just_white"
+        android:layout_height="wrap_content"
         app:elevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="News"
-            android:textSize="25sp"
-            android:layout_gravity="center"
-            android:textColor="@android:color/black"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/vk_profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/just_white"
+            app:title="News" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
