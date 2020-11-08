@@ -29,20 +29,27 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         val gson = Gson()
         val json: String? = act.loadJSONFromAsset(context, "user.json")
-        val userItem: UserItem = gson.fromJson(json, UserItem::class.java)
+        if (gson.fromJson(json, UserItem::class.java) != null) {
+            val userItem: UserItem = gson.fromJson(json, UserItem::class.java)
+            vk_user_name.text = userItem.name
+            vk_status_message.text = userItem.status
+            vk_profile_toolbar.title = userItem.email
+        } else {
+            vk_user_name.text = "ERROR"
+            vk_status_message.text = "ERROR"
+            vk_profile_toolbar.title = "ERROR"
+        }
 
-        vk_user_name.text = userItem.name
-        vk_status_message.text = userItem.status
-        vk_profile_toolbar.title = userItem.email
         vk_custom_avatar.setImageBitmap(loadImageFromInternalStorage())
 
         vk_edit_button.setOnClickListener {
             val transaction: Int? =
-            fragmentManager?.beginTransaction()?.replace(
-                R.id.fragment_container,
-                ProfileEditFragment()
-            )?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)?.addToBackStack(null)?.commit()
-            Log.d("MyTransLog","$transaction")
+                fragmentManager?.beginTransaction()?.replace(
+                    R.id.fragment_container,
+                    ProfileEditFragment()
+                )?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)?.addToBackStack(null)
+                    ?.commit()
+            Log.d("MyTransLog", "$transaction")
         }
 
         /*

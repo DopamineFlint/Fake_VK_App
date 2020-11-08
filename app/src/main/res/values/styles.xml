@@ -102,4 +102,32 @@
         <item name="android:paddingBottom">@dimen/vk_disabled_edit_text_padding_bottom</item>
     </style>
 
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="vk_button_sheet_top">
+        <item name="android:layout_width">340dp</item>
+        <item name="android:layout_height">@dimen/vk_button_edit_height</item>
+        <item name="android:layout_marginTop">@dimen/margin_zero</item>
+        <item name="android:background">@drawable/vk_bottom_sheet_button_top</item>
+        <item name="android:text">@string/button_edit_text</item>
+        <item name="android:textColor">@color/just_white</item>
+        <item name="android:enabled">true</item>
+    </style>
+
+    <style name="vk_button_sheet_bottom">
+        <item name="android:layout_width">340dp</item>
+        <item name="android:layout_height">@dimen/vk_button_edit_height</item>
+        <item name="android:layout_marginTop">@dimen/margin_zero</item>
+        <item name="android:background">@drawable/vk_bottom_sheet_button_bottom</item>
+        <item name="android:text">@string/button_edit_text</item>
+        <item name="android:textColor">@color/just_white</item>
+        <item name="android:enabled">true</item>
+    </style>
+
 </resources>

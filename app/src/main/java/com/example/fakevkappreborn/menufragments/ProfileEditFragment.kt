@@ -7,10 +7,13 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fakevkappreborn.BottomSheetDialog
 import com.example.fakevkappreborn.MainActivity
 import com.example.fakevkappreborn.R
 import com.example.fakevkappreborn.items.UserItem
@@ -26,6 +29,15 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
     private val path = "user.json"
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.d("MyCreateViewLog", "OnCreateView")
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,10 +45,16 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
         val gson = Gson()
         val fromJson: String? = act.loadJSONFromAsset(context, "user.json")
-        val userItem: UserItem = gson.fromJson(fromJson, UserItem::class.java)
 
-        vk_profile_edit_name.setText(userItem.name, TextView.BufferType.EDITABLE)
-        vk_profile_edit_status.setText(userItem.status, TextView.BufferType.EDITABLE)
+        if (gson.fromJson(fromJson, UserItem::class.java) != null) {
+            val userItem: UserItem = gson.fromJson(fromJson, UserItem::class.java)
+            vk_profile_edit_name.setText(userItem.name, TextView.BufferType.EDITABLE)
+            vk_profile_edit_status.setText(userItem.status, TextView.BufferType.EDITABLE)
+        } else {
+            vk_profile_edit_name.setText("ERROR", TextView.BufferType.EDITABLE)
+            vk_profile_edit_status.setText("ERROR", TextView.BufferType.EDITABLE)
+        }
+
         vk_profile_edit_custom_avatar.setImageBitmap(loadImageFromInternalStorage())
 
         vk_finish_edit_button.setOnClickListener {
@@ -62,9 +80,17 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
         }
 
         vk_profile_edit_custom_avatar.setOnClickListener {
-            val photoPickerIntent = Intent(Intent.ACTION_PICK)
+            val bottomSheetDialog = BottomSheetDialog()
+            fragmentManager?.let { it1 ->
+                bottomSheetDialog.show(
+                    it1,
+                    "exampleBottomSheet"
+                )
+            } //Need to fix this
+
+            /*val photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "image/*"
-            startActivityForResult(photoPickerIntent, 1)
+            startActivityForResult(photoPickerIntent, 1)*/*/
         }
     }
 
@@ -111,5 +137,9 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
         } else {
             BitmapFactory.decodeResource(resources, R.drawable.photo_of_me)
         }
+    }
+
+    fun changeProfileEditPic(bitmap: Bitmap) {
+        vk_profile_edit_custom_avatar.setImageBitmap(bitmap)
     }
 }
