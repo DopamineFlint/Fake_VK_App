@@ -36,6 +36,7 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
 
         bottom_sheet_camera_button.setOnClickListener {
             openCamera()
+            //parentFragmentManager.findFragmentByTag("JSHKDJA") as ProfileEditFragment
             //dismiss()
         }
 
@@ -57,13 +58,13 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
             if (imageUri != null) {
                 val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, imageUri)
                 saveToInternalStorage(bitmap)
-                //vk_profile_edit_custom_avatar.setImageBitmap(bitmap)
+                //ProfileEditFragment().setPhoto(bitmap)
             }
         }
 
         if (requestCode == 102) {
             val bitmap =
-                data?.extras?.get("data") as Bitmap //check if it's null then paste diff photo
+                data?.extras?.get("data") as Bitmap //check if it's null then paste diff photo //bug
             saveToInternalStorage(bitmap)
             //vk_profile_edit_custom_avatar.setImageBitmap(bitmap)
         }
@@ -99,5 +100,11 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
             }
         }
         Log.d("MyPhotoLog", "${directory?.absolutePath}")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Log.d("MyDestroyedLog", "DESTROYED")
     }
 }

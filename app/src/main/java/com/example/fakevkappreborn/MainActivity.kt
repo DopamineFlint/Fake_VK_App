@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.example.fakevkappreborn.items.UserItem
 import com.google.gson.Gson
 import java.io.BufferedReader
@@ -41,10 +40,10 @@ class MainActivity : AppCompatActivity() {
             setContentView(R.layout.activity_main)
         }
 
-        val newFragment: Fragment = LoginFragment()
+        /*val newFragment: Fragment = LoginFragment()
 
         supportFragmentManager
-            .beginTransaction().replace(R.id.fragment_container, newFragment).commit()
+            .beginTransaction().replace(R.id.fragment_container, newFragment).commit()*/
     }
 
     fun saveText(text: String, path: String?) {

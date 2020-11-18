@@ -7,6 +7,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.fakevkappreborn.sign_in_model.SignInModel
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -58,10 +59,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         // TODO: А так же добавить плавную анимацию!!!
         vk_sign_in_button.setOnClickListener {
             if (signInModel.checkEmailAndPassword()) {
-                activity?.supportFragmentManager?.beginTransaction()
+                /*activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.fragment_container, mainMenuFragment)
                     ?.addToBackStack(null)
-                    ?.commit()
+                    ?.commit()*/
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainMenuFragment())
             } else {
                 Toast.makeText(activity, "Email or password are incorrect", Toast.LENGTH_SHORT).show()
             }

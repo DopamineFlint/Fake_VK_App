@@ -43,13 +43,19 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         vk_custom_avatar.setImageBitmap(loadImageFromInternalStorage())
 
         vk_edit_button.setOnClickListener {
-            val transaction: Int? =
+            childFragmentManager.beginTransaction().replace(
+                R.id.fragment_container,
+                ProfileEditFragment()
+            ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(null)
+                .commit()
+            /*val transaction: Int? =
                 fragmentManager?.beginTransaction()?.replace(
                     R.id.fragment_container,
                     ProfileEditFragment()
                 )?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)?.addToBackStack(null)
-                    ?.commit()
-            Log.d("MyTransLog", "$transaction")
+                    ?.commit()*/
+            //Log.d("MyTransLog", "$transaction")
         }
 
         /*

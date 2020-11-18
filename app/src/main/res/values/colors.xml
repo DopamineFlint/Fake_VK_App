@@ -7,4 +7,5 @@
     <color name="vk_button_disabled">#B6CFEB</color>
     <color name="just_white">#ffffff</color>
     <color name="vk_grey">#68ECEDF1</color>
+    <color name="vk_grey_buttons">#9FA5AC</color>
 </resources>

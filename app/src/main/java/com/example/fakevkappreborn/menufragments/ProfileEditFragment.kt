@@ -41,6 +41,8 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("MyCreateViewLog", "OnCreateEDView")
+
         val act = activity as MainActivity
 
         val gson = Gson()
@@ -71,22 +73,32 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
                 act.saveText(toJson, path)
 
-                fragmentManager?.popBackStack()
+                //fragmentManager?.popBackStack()
+                childFragmentManager.popBackStack()
             }
         }
 
         vk_cancel_edit_button.setOnClickListener {
-            fragmentManager?.popBackStack()
+            //fragmentManager?.popBackStack()
+            childFragmentManager.popBackStack()
         }
 
         vk_profile_edit_custom_avatar.setOnClickListener {
             val bottomSheetDialog = BottomSheetDialog()
-            fragmentManager?.let { it1 ->
+
+            childFragmentManager.let { it1 ->
                 bottomSheetDialog.show(
                     it1,
                     "exampleBottomSheet"
                 )
             } //Need to fix this
+
+            /*fragmentManager?.let { it1 ->
+                bottomSheetDialog.show(
+                    it1,
+                    "exampleBottomSheet"
+                )
+            }*/
 
             /*val photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "image/*"
@@ -139,7 +151,7 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
         }
     }
 
-    fun changeProfileEditPic(bitmap: Bitmap) {
+    fun setPhoto(bitmap: Bitmap) {
         vk_profile_edit_custom_avatar.setImageBitmap(bitmap)
     }
 }

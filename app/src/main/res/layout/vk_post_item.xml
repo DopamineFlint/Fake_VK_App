@@ -62,66 +62,81 @@
             app:layout_constraintTop_toBottomOf="@+id/vk_post_text"
             app:srcCompat="@drawable/ic_launcher_background" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vk_image_view">
 
-            <LinearLayout
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/vk_like_checkbox"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
+                android:button="@drawable/vk_checkbox_selector"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <CheckBox
-                    android:id="@+id/vk_like_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:button="@drawable/vk_checkbox_selector" />
-
-                <TextView
-                    android:id="@+id/vk_likes_counter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="0dp"
-                    android:text="0" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/vk_likes_counter"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/vk_like_checkbox"
+                app:layout_constraintStart_toEndOf="@+id/vk_like_checkbox"
+                app:layout_constraintTop_toTopOf="@+id/vk_like_checkbox"
+                app:layout_constraintVertical_bias="0.4" />
 
-                <TextView
-                    android:id="@+id/vk_comments_counter"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="0" />
+            <ImageView
+                android:id="@+id/vk_image_view_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_baseline_feedback_24"
+                app:layout_constraintEnd_toStartOf="@+id/vk_image_view_shares"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/vk_like_checkbox"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/vk_grey_buttons" />
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/vk_comments_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/vk_image_view_comments"
+                app:layout_constraintStart_toEndOf="@+id/vk_image_view_comments"
+                app:layout_constraintTop_toTopOf="@+id/vk_image_view_comments" />
+
+            <ImageView
+                android:id="@+id/vk_image_view_shares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_baseline_share_24"
+                app:layout_constraintEnd_toStartOf="@+id/vk_reposts_counter"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/vk_grey_buttons" />
 
             <TextView
                 android:id="@+id/vk_reposts_counter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_weight="1"
-                android:text="0" />
+                android:layout_marginEnd="60dp"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/vk_image_view_shares"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/vk_image_view_shares"
+                app:layout_constraintVertical_bias="0.6" />
 
-        </LinearLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

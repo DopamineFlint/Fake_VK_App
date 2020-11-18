@@ -26,7 +26,8 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
         recycler_view.adapter = PostAdapter(pitList) {
             val bundle = Bundle()
-            bundle.putInt("key_post_position", pitList.indexOf(it))
+
+            bundle.putInt("key_post_position", pitList.indexOf(it)) //parcelize and parcelable
             bundle.putString("key_username", it.username)
             bundle.putString("key_avatar_url", it.avatar_url)
             bundle.putString("key_post_image", it.post_image)
@@ -36,10 +37,19 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
             bundle.putLong("key_post_date", it.post_date.toLong())
             bundle.putInt("key_shares_count", it.shares_count)
             bundle.putBoolean("key_is_liked", it.is_user_like)
+
             val postFragment = PostFragment()
             postFragment.arguments = bundle
-            fragmentManager?.beginTransaction()?.replace(R.id.fragment_menu_container,
-                postFragment)?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)?.addToBackStack(null)?.commit()
+
+            childFragmentManager.beginTransaction().replace(
+                R.id.fragment_menu_container,
+                postFragment
+            ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(null)
+                .commit()
+
+            /*fragmentManager?.beginTransaction()?.replace(R.id.fragment_menu_container,
+                postFragment)?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)?.addToBackStack(null)?.commit()*/
         }
         recycler_view.layoutManager = LinearLayoutManager(context)
         recycler_view.setHasFixedSize(true)

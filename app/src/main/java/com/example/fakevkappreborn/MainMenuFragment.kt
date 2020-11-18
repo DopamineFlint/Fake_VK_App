@@ -19,19 +19,30 @@ class MainMenuFragment : Fragment(R.layout.fragment_main_menu) {
 
         var selectedFragment: Fragment = NewsFragment()
 
-        fragmentManager?.beginTransaction()?.replace(
+        //fragmentManager?.
+
+        childFragmentManager.beginTransaction().replace(
             R.id.fragment_menu_container,
             selectedFragment
-        )?.commit()
+        ).commit()
+
+        /*supportFragmentManager.beginTransaction()?.replace(
+            R.id.fragment_menu_container,
+            selectedFragment
+        )?.commit()*/
 
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.nav_news -> selectedFragment = NewsFragment()
                 R.id.nav_messages -> selectedFragment = MessagesFragment()
                 R.id.nav_profile -> selectedFragment = ProfileFragment()
             }
-            fragmentManager?.beginTransaction()?.replace(R.id.fragment_menu_container,
-                selectedFragment)?.commit()
+            childFragmentManager.beginTransaction().replace(
+                R.id.fragment_menu_container,
+                selectedFragment
+            ).commit()
+            /*fragmentManager?.beginTransaction()?.replace(R.id.fragment_menu_container,
+                selectedFragment)?.commit()*/
             return@setOnNavigationItemSelectedListener true
         }
     }
