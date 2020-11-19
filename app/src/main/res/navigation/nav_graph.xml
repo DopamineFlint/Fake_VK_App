@@ -9,10 +9,14 @@
         android:id="@+id/loginFragment"
         android:name="com.example.fakevkappreborn.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/newsFragment2"
-        android:name="com.example.fakevkappreborn.menufragments.NewsFragment"
-        android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.fakevkappreborn.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" />
 </navigation>
